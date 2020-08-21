@@ -1,0 +1,508 @@
+// mixin`s
+@mixin font-lato{
+  font-family: 'Lato', sans-serif;
+}
+@mixin font-merri{
+  font-family: 'Merriweather', serif;
+}
+
+$dark : #222222;
+$blue : #005FA3;
+$white : #FFFFFF;
+$grey: #BDBDBD;
+$color-title:#333333;
+// /mixin`s
+
+// wrapper`s
+.wrapper{
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: 1100px;
+  padding-right: 10px;
+  padding-left:  10px;
+}
+// /wrapper`s
+body{
+	@include font-lato;
+}
+
+img{
+	max-width: 100%;
+	display: block;
+}
+
+// header
+.header-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $white;
+	padding: 22px 0 31px 0;
+}
+.header-left {
+	
+}
+.logo {
+	a{
+		text-decoration: none;
+		display: flex;		
+		align-items: center;
+		.logo-name{
+			@include font-merri;
+			font-weight: 900;
+			font-size: 36px;
+			line-height: 50px;
+			color: $blue;
+			margin-left: 30px;
+		}
+	}
+}
+.header-right {
+	display: flex;
+	flex-direction: column;
+}
+.line-info {
+	display: flex;
+	justify-content: space-between;
+}
+
+.line-info__item {
+	font-size: 13px;
+	line-height: 17px;
+	margin-left: 48px;
+	margin-bottom: 22px;
+		&:first-child{
+			margin-left: 0;
+		}
+}
+.nav-list {
+	display: flex;
+	justify-content: space-between;
+}
+.nav {
+	&__item {
+	margin-left: 68px;
+	cursor: pointer;
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+	&__item-link {
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 17px;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+}
+
+// /header
+
+// first page
+
+.first-page{
+	background-image: url('../img/bg.png');
+	height: 84vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.title{
+	@include font-merri;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 48px;
+	line-height: 66px;
+	color: #FFFFFF;
+	margin-bottom: 80px;
+}
+.present-btn{
+	@include font-lato;
+	outline: none;
+	background-color: $blue;
+	color:$white;
+	padding: 15px 28px;
+	border: none;
+	font-size: 18px;
+}
+
+// /first page
+
+// services
+
+.services {
+	padding-top: 100px;
+	background-color: #EBEBEB;
+	padding-bottom: 140px;
+}
+
+.title-h3 {
+	font-size: 24px;
+	line-height: 33px;
+	color: $grey;
+	margin-bottom: 40px;
+
+}
+.services-title {
+	margin-bottom: 70px;
+	color: $color-title;
+}
+.services-inner {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-gap: 30px;
+}
+.services-item {
+	background-image: url('../img/services.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: auto;
+	height: 360px;
+	position: relative;
+	&:hover:before{
+		content: "";
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  background-color: rgba(0, 95, 163, 0.45);	
+	}
+}
+.services-item__name {
+	font-size: 24px;
+	line-height: 30px;
+	color: $white;
+	position: absolute;
+	top: 260px;
+	left: 45px;
+	font-weight: bold;
+}
+
+
+// /services
+
+// about
+
+.about {
+	padding: 120px 0;
+}
+.about-inner {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-gap: 120px;
+}
+.about-text {
+
+}
+.about-title {
+	margin-bottom: 60px;
+	color: $color-title;
+}
+span{
+	color: $blue;
+}
+.text-lorem {
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 25px;
+}
+.about-cases {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-gap: 30px;
+	&__item {
+		background-color: #ebebeb;
+		width: auto;
+		padding: 30px 100px 30px 30px;
+		transition: 0.4s;
+		&:hover{
+			background-color: $blue;
+			color: $white !important;
+		}
+	}
+}
+.about-link {
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 17px;
+	text-decoration-line: underline;
+}
+.number {
+	font-weight: 900;
+	font-size: 55px;
+	line-height: 66px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+}
+.number__sub {
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 18px;
+	margin-bottom: 40px;
+}
+
+
+// /about
+
+
+// clients
+
+.clients {
+	background-color: #ebebeb;
+	padding: 100px 0;
+}
+
+.wrapper-clients{
+	position: relative;
+}
+
+.clients-title {
+	color: $color-title;
+	margin-bottom: 70px;
+}
+
+.clients-inner {
+	// display: grid;
+	// grid-template-columns: repeat(4,1fr);
+	// grid-gap: 20px;
+}
+// /clients
+
+// reviews
+
+.reviews {
+	padding: 120px 0 100px 0;
+}
+
+.reviews-title {
+	color: $color-title;
+	margin-bottom: 70px;
+}
+
+
+.reviews-block {
+	background-color: #ebebeb;
+	padding: 45px 95px;
+	&__info{
+		display: flex;
+		align-items: center;
+		margin-top: 50px;
+	}
+}
+.reviews-block__text{
+  font-weight: 300;
+	font-size: 18px;
+	line-height: 25px;
+	margin-left: 35px;
+}
+.name {
+	font-weight: 900;
+	font-size: 18px;
+	line-height: 25px;
+}
+.comp {
+	font-size: 14px;
+	line-height: 19px;
+	color: #4F4F4F;
+}
+
+// /reviews
+
+// contact
+
+.contact{
+	background-image: url('../img/bg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	color: $white;
+	padding: 100px 0;
+		&:before{
+		content: "";
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), #C4C4C4;
+	  opacity: 0.65;
+	  z-index: 1;
+	}
+}
+
+.contact-inner{
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-gap: 100px;
+	z-index: 2;
+}
+.contact-text {
+z-index: 2;
+}
+.contact-title {
+}
+.our-contacts{
+	display: flex;
+	justify-content: space-between;
+}
+.contact-p {
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 25px;
+	margin-bottom: 80px;
+}
+.phone {
+	font-weight: 300;
+	font-size: 21px;
+	line-height: 29px;
+}
+.message {
+	font-weight: 300;
+	font-size: 21px;
+	line-height: 29px;
+}
+.contact-form {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	z-index: 2;
+	&__item{
+		display: flex;
+		flex-direction: column;
+		&:nth-child(1){
+			margin: 0 30px 35px 0;
+		}
+	}
+	label{
+		
+	}
+	input{
+		background: transparent;
+		outline: none;
+		border:none;
+		border-bottom: 1px solid white;
+		color: $white;
+	}
+	textarea{
+		background: transparent;
+		outline: none;
+		border:none;
+		border-bottom: 1px solid white;
+		resize: vertical;
+		color: $white;
+	}
+	.textarea{
+		grid-column: 1/3;
+	}
+}
+// /contact
+
+// footer
+footer{
+	background-color: $white;
+	padding: 50px 0 40px 0;
+}
+
+.footer-inner{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+// /footer
+
+.clients-inner{
+	
+}
+
+/* Слайдер */
+.slick-slider{}
+/* Слайдер запущен */
+.slick-slider.slick-initialized{}
+/* Слайдер с точками */
+.slick-slider.slick-dotted{}
+/* Ограничивающая оболочка */
+.slick-list {
+	overflow: hidden;
+}
+/* Лента слайдов */
+.slick-track{
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 50px;
+}
+/* Слайд */
+.slick-slide{
+		outline: none;
+}
+/* Слайд активный (показывается) */
+.slick-slide.slick-active{}
+/* Слайд основной */
+.slick-slide.slick-current{}
+/* Слайд по центру */
+.slick-slide.slick-center{}
+/* Клонированный слайд */
+.slick-slide.slick-cloned{}
+/* Стрелка */
+.clients-inner .slick-arrow{
+
+	position: absolute;
+	z-index: 10;
+	font-size: 0;
+	width: 40px;
+	height: 40px;
+	border:none;
+	outline: none;
+}
+/* Стрелка влево */
+.clients-inner .slick-arrow.slick-prev{
+	background: url('../img/arrow-ll.png') 0 0 /100% no-repeat;
+	bottom: 0;
+	right: 0;
+	margin-right: 50px;
+	transition: .3s;
+	&:hover{
+	transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	}
+}
+/* Стрелка вправо */
+.clients-inner .slick-arrow.slick-next{
+	background: url('../img/arrow-rr.png') 0 0 /100% no-repeat;
+	bottom: 0;
+	right: 0;
+	transition: .3s;
+	&:hover{
+	transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	}
+}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled{}
+/* Точки (булиты) */
+.clients-inner .slick-dots{
+	display: flex;
+	align-items: center;
+}
+.clients-inner .slick-dots li{
+}
+/* Активная точка */
+.clients-inner .slick-dots li.slick-active button{
+	opacity: 1;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 2px 10px rgba(0,0,0,0.22);
+
+}
+/* Элемент точки */
+.clients-inner .slick-dots li button{
+	background-color: $blue;
+	height: 3px;
+	border-radius: 50%;
+	margin-right: 50px;
+	height: 10px;
+	border: none;
+	opacity: 0.7;
+	font-size: 0;
+	outline: none;
+}
